@@ -39,6 +39,20 @@ public:
     }
   }
 
+  T Difference(){
+    int diff = head_->Element();
+    if (size_ == 0){
+      throw std::logic_error("list is empty");
+    }
+    if (size_ == 1){
+      return head_->Element();
+    }
+    for (SLNode *new_node = head_->Element(); new_node; new_node = new_node->Element()){
+      diff = diff - new_node->Element();
+    }
+    return diff;
+  }
+  
   int Size() { return size_; }
 
   const T& Front() const {
